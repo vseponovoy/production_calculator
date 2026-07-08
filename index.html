@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Друк етикеток в рулонах | Замовити онлайн — Paperivka</title>
-<meta name="description" content="Виготовлення етикеток у рулонах будь-якої форми. Друк на Konica Minolta AccurioLabel. Безкоштовні тестові зразки. Терміновий друк «на вчора»">
+<title>Калькулятор етикеток — Paperivka</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,36 +26,12 @@ body{
   background:var(--bg);
   line-height:1.65;
   font-size:16px;
+  padding:16px;
 }
 img{max-width:100%}
 a{color:var(--green);text-decoration:none}
 a:hover{color:var(--green-dark)}
 
-/* ---------- header ---------- */
-header{
-  border-bottom:1px solid var(--line);
-  background:#fff;
-  position:sticky;top:0;z-index:50;
-}
-.header-inner{
-  max-width:1140px;margin:0 auto;padding:14px 20px;
-  display:flex;align-items:center;gap:28px;
-}
-.logo{font-weight:800;font-size:22px;letter-spacing:.5px;color:var(--ink)}
-.logo span{color:var(--green)}
-.header-nav{display:flex;gap:26px;margin-left:auto;font-weight:600;font-size:13px;letter-spacing:.08em}
-.header-nav a{color:var(--ink)}
-.header-nav a:hover{color:var(--green)}
-.header-phone{font-weight:600;font-size:14px;color:var(--ink)}
-@media (max-width:720px){
-  .header-nav{display:none}
-  .header-phone{margin-left:auto}
-}
-
-/* ---------- layout ---------- */
-main{max-width:1140px;margin:0 auto;padding:36px 20px 70px}
-h1{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:26px}
-h2{font-size:23px;font-weight:700;margin:44px 0 14px}
 h3{font-size:19px;font-weight:700;margin:0 0 18px}
 p{margin-bottom:14px;color:var(--ink-soft)}
 p strong{color:var(--ink)}
@@ -67,7 +42,6 @@ p strong{color:var(--ink)}
   border:1px solid var(--line);
   border-radius:14px;
   padding:30px;
-  margin:0 0 10px;
 }
 .calc-grid{
   display:grid;
@@ -147,44 +121,13 @@ p strong{color:var(--ink)}
 .btn-ghost{background:#fff;color:var(--green);border:2px solid var(--green)}
 .btn-ghost:hover{background:var(--green-pale)}
 
-/* ---------- info blocks ---------- */
-.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0 6px}
-.badge{
-  background:var(--green-pale);border-radius:12px;padding:18px 20px;
-  font-size:14px;font-weight:600;color:var(--ink);line-height:1.45;
-}
-.badge span{display:block;font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:4px}
-@media (max-width:720px){.badges{grid-template-columns:1fr}}
-
-/* ---------- footer ---------- */
-footer{background:var(--bg-soft);border-top:1px solid var(--line);margin-top:20px}
-.footer-inner{
-  max-width:1140px;margin:0 auto;padding:34px 20px;
-  display:flex;flex-wrap:wrap;gap:30px 60px;font-size:14px;color:var(--ink-soft);
-}
-.footer-inner h5{font-size:12px;letter-spacing:.1em;color:var(--ink);margin-bottom:10px}
-.footer-inner div p{margin-bottom:5px}
-.copy{width:100%;font-size:12.5px;color:#999;margin-top:6px}
+/* disclaimer */
+.disclaimer{margin-top:10px;font-size:13px;color:#888}
 
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="header-inner">
-    <a class="logo" href="https://paperivka.ua/">Paper<span>i</span>vka</a>
-    <nav class="header-nav">
-      <a href="https://paperivka.ua/#">ПРОДУКЦІЯ</a>
-      <a href="https://paperivka.ua/kontakty">КОНТАКТИ</a>
-      <a href="https://www.liqpay.ua/en/checkout/i3301099544">ОПЛАТИТИ</a>
-    </nav>
-    <a class="header-phone" href="tel:+380670080301">+38&nbsp;067&nbsp;008&nbsp;03&nbsp;01</a>
-  </div>
-</header>
-
-<main>
-  <h1>Етикетки в рулонах</h1>
 
   <div class="calc" id="calc">
     <div class="calc-grid">
@@ -277,48 +220,7 @@ footer{background:var(--bg-soft);border-top:1px solid var(--line);margin-top:20p
 
     </div>
   </div>
-  <p style="font-size:13px;color:#888">Розрахунок є попереднім. Точну вартість менеджер підтвердить після перегляду макета — форма висічки, складність змотки та терміновість можуть вплинути на ціну.</p>
-
-  <h2>Коротко про технологію</h2>
-  <p>Рулонні етикетки — це формат для тих, хто клеїть етикетку не руками, а машиною, або кому потрібні великі тиражі однієї позиції. Ми друкуємо їх на промисловій рулонній машині <strong>Konica Minolta AccurioLabel</strong> на стрічці шириною 330&nbsp;мм, а далі висікаємо потрібну форму та змотуємо в акуратні рулони під ваш аплікатор чи ручне наклеювання.</p>
-  <p>По краях рулона друкуються технологічні мітки для висікального плотера, тому робоча зона під етикетки трохи вужча за стрічку — калькулятор враховує це автоматично й сам центрує ряди етикеток на рулоні.</p>
-
-  <h2>Трішки про вартість</h2>
-  <p>Вартість рулонного накладу рахується з <strong>погонних метрів</strong> надрукованої стрічки: що менша етикетка і що щільніше вона лягає впоперек рулона, то більше штук ми отримуємо з кожного метра — і то дешевша кожна етикетка. А ще ціна за метр знижується зі зростанням метражу: великі тиражі відчутно вигідніші. Калькулятор сам підбирає найвигідніше розміщення і одразу показує ціну.</p>
-
-  <div class="badges">
-    <div class="badge">Безкоштовні тестові зразки<span>для нових клієнтів — разом із безкоштовною доставкою</span></div>
-    <div class="badge">90% замовлень — «на завтра»<span>терміновий друк «на вчора» — обговорюється</span></div>
-    <div class="badge">Доставка від 2000 грн — за наш рахунок<span>Нова Пошта по Україні, кур'єр по Франківську</span></div>
-  </div>
-
-  <h2>Безкоштовні зразки</h2>
-  <p>Друкарські відбитки можуть відрізнятись від картинки на екрані телефона чи комп'ютера — це залежить від матеріалу, покриття і налаштувань машини. Тому для нових клієнтів ми виготовляємо <strong>безкоштовні тестові зразки</strong> рулонних етикеток, і доставка зразків теж буде для вас безкоштовною.</p>
-
-  <h2>Терміни виготовлення</h2>
-  <p>Час виготовлення залежить від завантаженості друкарні, тиражу та стану макетів. Але, попри це все, 90% замовлень ми виконуємо «на завтра».</p>
-
-  <h2>Доставка і оплата</h2>
-  <p>Доставка по Україні — щодня «Новою Поштою», по Івано-Франківську — кур'єром. Замовлення від <strong>2000&nbsp;грн</strong> доставляємо за наш рахунок. Для нових клієнтів замовлення йде в роботу після 100% оплати; для постійних можлива післяоплата — все обговорюється індивідуально.</p>
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <h5>КОНТАКТИ</h5>
-      <p>Франківськ, вул. Грюнвальдська, 4а</p>
-      <p><a href="tel:+380670080301">+38 067 008 03 01</a></p>
-      <p><a href="mailto:office@paperivka.ua">office@paperivka.ua</a></p>
-    </div>
-    <div>
-      <h5>ПІДТРИМКА</h5>
-      <p><a href="https://paperivka.ua/tehnichni-vymogy-do-maketiv">Технічні вимоги</a></p>
-      <p><a href="https://paperivka.ua/yak-pidgotuvaty-maket">Як підготувати макет?</a></p>
-      <p><a href="https://paperivka.ua/oplata-ta-dostavka">Доставка і оплата</a></p>
-    </div>
-    <p class="copy">© ТМ «Paperivka», 2026 р.</p>
-  </div>
-</footer>
+  <p class="disclaimer">Розрахунок є попереднім. Точну вартість менеджер підтвердить після перегляду макета — форма висічки, складність змотки та терміновість можуть вплинути на ціну.</p>
 
 <script>
 /* =====================================================================
@@ -441,11 +343,11 @@ function recalc() {
     return;
   }
 
-  const printM   = r.lenM;                                  // фактичний метраж друку
-  const billM    = Math.max(printM, CFG.minBillableM);      // метраж до оплати
-  const perMeter = mat.base * tierK(billM);                 // грн/м.п. за таблицею
+  const printM   = r.lenM;
+  const billM    = Math.max(printM, CFG.minBillableM);
+  const perMeter = mat.base * tierK(billM);
   let price      = billM * perMeter;
-  price = Math.ceil(price / 10) * 10;                       // округлення до 10 грн
+  price = Math.ceil(price / 10) * 10;
 
   $('priceTotal').textContent = price.toLocaleString('uk-UA');
   $('pricePer').textContent   = (price / qty).toFixed(2).replace('.', ',');
