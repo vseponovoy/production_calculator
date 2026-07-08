@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Друк етикеток в рулонах | Замовити онлайн — Paperivka</title>
+<meta name="description" content="Виготовлення етикеток у рулонах будь-якої форми. Друк на Konica Minolta AccurioLabel. Безкоштовні тестові зразки. Терміновий друк «на вчора»">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#5BA829;
+  --green-dark:#4a8b21;
+  --green-pale:#eef6e6;
+  --ink:#2b2b2b;
+  --ink-soft:#555;
+  --line:#e3e6e0;
+  --bg:#ffffff;
+  --bg-soft:#f6f8f4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',system-ui,-apple-system,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.65;
+  font-size:16px;
+}
+img{max-width:100%}
+a{color:var(--green);text-decoration:none}
+a:hover{color:var(--green-dark)}
+
+/* ---------- header ---------- */
+header{
+  border-bottom:1px solid var(--line);
+  background:#fff;
+  position:sticky;top:0;z-index:50;
+}
+.header-inner{
+  max-width:1140px;margin:0 auto;padding:14px 20px;
+  display:flex;align-items:center;gap:28px;
+}
+.logo{font-weight:800;font-size:22px;letter-spacing:.5px;color:var(--ink)}
+.logo span{color:var(--green)}
+.header-nav{display:flex;gap:26px;margin-left:auto;font-weight:600;font-size:13px;letter-spacing:.08em}
+.header-nav a{color:var(--ink)}
+.header-nav a:hover{color:var(--green)}
+.header-phone{font-weight:600;font-size:14px;color:var(--ink)}
+@media (max-width:720px){
+  .header-nav{display:none}
+  .header-phone{margin-left:auto}
+}
+
+/* ---------- layout ---------- */
+main{max-width:1140px;margin:0 auto;padding:36px 20px 70px}
+h1{font-size:34px;font-weight:800;line-height:1.2;margin-bottom:26px}
+h2{font-size:23px;font-weight:700;margin:44px 0 14px}
+h3{font-size:19px;font-weight:700;margin:0 0 18px}
+p{margin-bottom:14px;color:var(--ink-soft)}
+p strong{color:var(--ink)}
+
+/* ---------- calculator ---------- */
+.calc{
+  background:var(--bg-soft);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:30px;
+  margin:0 0 10px;
+}
+.calc-grid{
+  display:grid;
+  grid-template-columns:minmax(0,430px) minmax(0,1fr);
+  gap:36px;
+}
+@media (max-width:860px){.calc-grid{grid-template-columns:1fr}}
+
+.field{margin-bottom:16px}
+.field label{
+  display:block;font-size:13px;font-weight:600;
+  letter-spacing:.03em;margin-bottom:6px;color:var(--ink);
+}
+.field input[type=number],.field select{
+  width:100%;padding:11px 13px;
+  border:1px solid var(--line);border-radius:8px;
+  font:inherit;font-size:15px;background:#fff;color:var(--ink);
+  outline:none;transition:border-color .15s;
+}
+.field input:focus,.field select:focus{border-color:var(--green)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* orientation cards */
+.ori-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ori-card{
+  border:2px solid var(--line);border-radius:10px;background:#fff;
+  padding:11px 6px;text-align:center;cursor:pointer;
+  font-size:12.5px;font-weight:600;line-height:1.3;color:var(--ink-soft);
+  transition:border-color .15s,color .15s;
+}
+.ori-card svg{display:block;margin:0 auto 7px;width:34px;height:26px}
+.ori-card.active{border-color:var(--green);color:var(--ink)}
+.ori-card:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+/* ---------- results ---------- */
+.results{display:flex;flex-direction:column}
+.price-box{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:22px 24px;margin-bottom:18px;
+}
+.price-main{
+  font-size:38px;font-weight:800;color:var(--green);line-height:1.1;
+}
+.price-main small{font-size:17px;font-weight:700;color:var(--ink-soft)}
+.price-sub{font-size:14px;color:var(--ink-soft);margin-top:6px}
+.price-note{
+  font-size:13px;color:#a05a00;background:#fdf3e3;
+  border-radius:8px;padding:9px 12px;margin-top:12px;display:none;
+}
+.price-note.show{display:block}
+.stat-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;
+}
+.stat{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:12px 14px;text-align:center;
+}
+.stat b{display:block;font-size:19px;font-weight:700;color:var(--ink)}
+.stat span{font-size:11.5px;letter-spacing:.03em;color:var(--ink-soft)}
+
+.layout-svg{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:14px;margin-bottom:6px;
+}
+.layout-caption{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-bottom:0}
+
+/* ---------- buttons ---------- */
+.btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.btn{
+  display:inline-block;border:none;cursor:pointer;
+  font:inherit;font-weight:700;font-size:14px;letter-spacing:.09em;
+  padding:15px 34px;border-radius:8px;transition:background .15s,color .15s;
+  text-align:center;
+}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-dark);color:#fff}
+.btn-ghost{background:#fff;color:var(--green);border:2px solid var(--green)}
+.btn-ghost:hover{background:var(--green-pale)}
+
+/* ---------- info blocks ---------- */
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0 6px}
+.badge{
+  background:var(--green-pale);border-radius:12px;padding:18px 20px;
+  font-size:14px;font-weight:600;color:var(--ink);line-height:1.45;
+}
+.badge span{display:block;font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:4px}
+@media (max-width:720px){.badges{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{background:var(--bg-soft);border-top:1px solid var(--line);margin-top:20px}
+.footer-inner{
+  max-width:1140px;margin:0 auto;padding:34px 20px;
+  display:flex;flex-wrap:wrap;gap:30px 60px;font-size:14px;color:var(--ink-soft);
+}
+.footer-inner h5{font-size:12px;letter-spacing:.1em;color:var(--ink);margin-bottom:10px}
+.footer-inner div p{margin-bottom:5px}
+.copy{width:100%;font-size:12.5px;color:#999;margin-top:6px}
+
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="https://paperivka.ua/">Paper<span>i</span>vka</a>
+    <nav class="header-nav">
+      <a href="https://paperivka.ua/#">ПРОДУКЦІЯ</a>
+      <a href="https://paperivka.ua/kontakty">КОНТАКТИ</a>
+      <a href="https://www.liqpay.ua/en/checkout/i3301099544">ОПЛАТИТИ</a>
+    </nav>
+    <a class="header-phone" href="tel:+380670080301">+38&nbsp;067&nbsp;008&nbsp;03&nbsp;01</a>
+  </div>
+</header>
+
+<main>
+  <h1>Етикетки в рулонах</h1>
+
+  <div class="calc" id="calc">
+    <div class="calc-grid">
+
+      <div class="calc-form">
+        <h3>Параметри етикетки</h3>
+
+        <div class="field">
+          <label for="mat">Матеріал</label>
+          <select id="mat"></select>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="w">Ширина, мм</label>
+            <input type="number" id="w" min="10" max="440" step="1" value="60">
+          </div>
+          <div class="field">
+            <label for="h">Висота, мм</label>
+            <input type="number" id="h" min="10" max="440" step="1" value="40">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="qty">Тираж, шт</label>
+            <input type="number" id="qty" min="100" step="100" value="10000">
+          </div>
+          <div class="field">
+            <label for="rowGap">Відстань між рядами, мм</label>
+            <select id="rowGap">
+              <option value="2">2 мм</option>
+              <option value="3" selected>3 мм</option>
+              <option value="4">4 мм</option>
+              <option value="5">5 мм</option>
+              <option value="6">6 мм</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Розміщення етикетки на рулоні</label>
+          <div class="ori-cards" id="oriCards" role="radiogroup" aria-label="Розміщення етикетки">
+            <button type="button" class="ori-card active" data-ori="auto" aria-pressed="true">
+              <svg viewBox="0 0 34 26" fill="none" stroke="#5BA829" stroke-width="2"><rect x="2" y="6" width="13" height="14" rx="2"/><rect x="19" y="4" width="13" height="18" rx="2" stroke-dasharray="3 3"/></svg>
+              Оптимально
+            </button>
+            <button type="button" class="ori-card" data-ori="h" aria-pressed="false">
+              <svg viewBox="0 0 34 26" fill="none" stroke="#5BA829" stroke-width="2"><rect x="4" y="7" width="26" height="12" rx="2"/></svg>
+              Горизонтально
+            </button>
+            <button type="button" class="ori-card" data-ori="v" aria-pressed="false">
+              <svg viewBox="0 0 34 26" fill="none" stroke="#5BA829" stroke-width="2"><rect x="11" y="2" width="12" height="22" rx="2"/></svg>
+              Вертикально
+            </button>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-green" href="https://t.me/Paperivka_bot" id="orderBtn">ЗАМОВИТИ</a>
+          <a class="btn btn-ghost" href="tel:+380670080301">ПОТРІБНА ПОРАДА</a>
+        </div>
+      </div>
+
+      <div class="results">
+        <h3>Попередній розрахунок</h3>
+
+        <div class="price-box">
+          <div class="price-main"><span id="priceTotal">—</span> <small>грн</small></div>
+          <div class="price-sub">
+            <span id="pricePer">—</span> грн / етикетка &nbsp;·&nbsp;
+            <span id="pricePerM">—</span> грн / м.п. &nbsp;·&nbsp;
+            тираж <span id="qtyEcho">—</span> шт
+          </div>
+          <div class="price-note" id="minNote">Розрахунок для тиражів до 5 погонних метрів рахуємо як за 5 м.п. — приладка машини коштує однаково для малого й великого накладу. Додайте кількість — ціна за етикетку помітно впаде.</div>
+          <div class="price-note" id="fitNote">Етикетка такого розміру не вміщується на робочу зону рулона. Зменшіть розмір, змініть розміщення або напишіть нам — підберемо рішення.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat"><b id="stLanes">—</b><span>рядів по ширині</span></div>
+          <div class="stat"><b id="stMeters">—</b><span>метрів друку</span></div>
+          <div class="stat"><b id="stPerM">—</b><span>етикеток з метра</span></div>
+        </div>
+
+        <div class="layout-svg">
+          <svg id="laySvg" viewBox="0 0 660 200" width="100%" height="auto" role="img" aria-label="Схема розкладки етикеток на рулоні"></svg>
+        </div>
+        <p class="layout-caption" id="layCaption">Розкладка на рулоні 330&nbsp;мм</p>
+      </div>
+
+    </div>
+  </div>
+  <p style="font-size:13px;color:#888">Розрахунок є попереднім. Точну вартість менеджер підтвердить після перегляду макета — форма висічки, складність змотки та терміновість можуть вплинути на ціну.</p>
+
+  <h2>Коротко про технологію</h2>
+  <p>Рулонні етикетки — це формат для тих, хто клеїть етикетку не руками, а машиною, або кому потрібні великі тиражі однієї позиції. Ми друкуємо їх на промисловій рулонній машині <strong>Konica Minolta AccurioLabel</strong> на стрічці шириною 330&nbsp;мм, а далі висікаємо потрібну форму та змотуємо в акуратні рулони під ваш аплікатор чи ручне наклеювання.</p>
+  <p>По краях рулона друкуються технологічні мітки для висікального плотера, тому робоча зона під етикетки трохи вужча за стрічку — калькулятор враховує це автоматично й сам центрує ряди етикеток на рулоні.</p>
+
+  <h2>Трішки про вартість</h2>
+  <p>Вартість рулонного накладу рахується з <strong>погонних метрів</strong> надрукованої стрічки: що менша етикетка і що щільніше вона лягає впоперек рулона, то більше штук ми отримуємо з кожного метра — і то дешевша кожна етикетка. А ще ціна за метр знижується зі зростанням метражу: великі тиражі відчутно вигідніші. Калькулятор сам підбирає найвигідніше розміщення і одразу показує ціну.</p>
+
+  <div class="badges">
+    <div class="badge">Безкоштовні тестові зразки<span>для нових клієнтів — разом із безкоштовною доставкою</span></div>
+    <div class="badge">90% замовлень — «на завтра»<span>терміновий друк «на вчора» — обговорюється</span></div>
+    <div class="badge">Доставка від 2000 грн — за наш рахунок<span>Нова Пошта по Україні, кур'єр по Франківську</span></div>
+  </div>
+
+  <h2>Безкоштовні зразки</h2>
+  <p>Друкарські відбитки можуть відрізнятись від картинки на екрані телефона чи комп'ютера — це залежить від матеріалу, покриття і налаштувань машини. Тому для нових клієнтів ми виготовляємо <strong>безкоштовні тестові зразки</strong> рулонних етикеток, і доставка зразків теж буде для вас безкоштовною.</p>
+
+  <h2>Терміни виготовлення</h2>
+  <p>Час виготовлення залежить від завантаженості друкарні, тиражу та стану макетів. Але, попри це все, 90% замовлень ми виконуємо «на завтра».</p>
+
+  <h2>Доставка і оплата</h2>
+  <p>Доставка по Україні — щодня «Новою Поштою», по Івано-Франківську — кур'єром. Замовлення від <strong>2000&nbsp;грн</strong> доставляємо за наш рахунок. Для нових клієнтів замовлення йде в роботу після 100% оплати; для постійних можлива післяоплата — все обговорюється індивідуально.</p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <h5>КОНТАКТИ</h5>
+      <p>Франківськ, вул. Грюнвальдська, 4а</p>
+      <p><a href="tel:+380670080301">+38 067 008 03 01</a></p>
+      <p><a href="mailto:office@paperivka.ua">office@paperivka.ua</a></p>
+    </div>
+    <div>
+      <h5>ПІДТРИМКА</h5>
+      <p><a href="https://paperivka.ua/tehnichni-vymogy-do-maketiv">Технічні вимоги</a></p>
+      <p><a href="https://paperivka.ua/yak-pidgotuvaty-maket">Як підготувати макет?</a></p>
+      <p><a href="https://paperivka.ua/oplata-ta-dostavka">Доставка і оплата</a></p>
+    </div>
+    <p class="copy">© ТМ «Paperivka», 2026 р.</p>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   ВНУТРІШНІ ПАРАМЕТРИ — редагуються тут, клієнт їх не бачить
+   ===================================================================== */
+const CFG = {
+  rollWidth: 330,     // фізична ширина рулона, мм
+  edgeUnprintable: 5, // принтер не додруковує з кожного краю, мм
+  markDia: 3,         // діаметр мітки плотера, мм
+  markToLabel: 3,     // мін. відстань від мітки до етикетки, мм
+  laneGap: 4,         // відстань між етикетками по ширині рулона, мм
+  minBillableM: 5,    // мінімальний метраж до оплати, м.п. (нижня межа таблиці)
+  minOrderNote: 0,    // 0 = вимкнено; або сума в грн для підказки про мінімалку
+
+  /* Ціноутворення з таблиці Roll_Price.xlsx:
+     ціна грн/м.п. = base (собівартість матеріал+друк) × націнка за метражем */
+  tiers: [            // від більшого метражу до меншого
+    { minM: 500, k: 2.25 },
+    { minM: 200, k: 2.50 },
+    { minM: 100, k: 2.75 },
+    { minM:  50, k: 3.00 },
+    { minM:  20, k: 3.25 },
+    { minM:  10, k: 3.50 },
+    { minM:   0, k: 4.00 }
+  ],
+  materials: [        // base = грн/м.п. з ПДВ (матеріал + друк)
+    { g: 'Папір',  name: 'Папір напівглянцевий — UPM Raflacoat Plus FSC',      base: 19.5607 },
+    { g: 'Папір',  name: 'Папір напівглянцевий — Ritrama Coated 80 FSC',       base: 21.5291 },
+    { g: 'Папір',  name: 'Папір фактурний Antiqua White — Ritrama WS FSC',     base: 37.4144 },
+    { g: 'Папір',  name: 'Папір фактурний Martele White — Ritrama WS',         base: 35.5151 },
+    { g: 'Папір',  name: 'Папір фактурний Starlight — Ritrama WS FSC',         base: 39.1411 },
+    { g: 'Папір',  name: 'Папір фактурний Tela — Ritrama WS FSC',              base: 35.5151 },
+    { g: 'Плівка', name: 'Плівка PP біла — UPM PP White FTC 60',               base: 21.3219 },
+    { g: 'Плівка', name: 'Плівка PP прозора — UPM PP Clear FTC 50',            base: 21.1147 },
+    { g: 'Плівка', name: 'Плівка PP срібляста — UPM PP Silver FTC 50',         base: 25.0515 },
+    { g: 'Плівка', name: 'Плівка PP прозора глянцева — Ritrama TCX Clear 50',  base: 25.6731 },
+    { g: 'Плівка', name: 'Плівка PP біла глянцева — Ritrama TCX White 60',     base: 25.3278 },
+    { g: 'Плівка', name: 'Плівка PP біла матова — Ritrama TC Matt White 70',   base: 32.4071 }
+  ]
+};
+/* Робоча зона під етикетки:
+   330 − 2×5 (недодрук) − 2×3 (мітка) − 2×3 (мітка→етикетка) = 308 мм */
+CFG.usableWidth = CFG.rollWidth - 2 * (CFG.edgeUnprintable + CFG.markDia + CFG.markToLabel);
+/* ===================================================================== */
+
+const $ = id => document.getElementById(id);
+let currentOri = 'auto';
+
+// матеріали у select з групами
+(function fillMaterials(){
+  const sel = $('mat');
+  let lastG = null, og = null;
+  CFG.materials.forEach((m, i) => {
+    if (m.g !== lastG) {
+      og = document.createElement('optgroup');
+      og.label = m.g;
+      sel.appendChild(og);
+      lastG = m.g;
+    }
+    const o = document.createElement('option');
+    o.value = i; o.textContent = m.name;
+    og.appendChild(o);
+  });
+})();
+
+// вибір розміщення картками
+document.querySelectorAll('.ori-card').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.ori-card').forEach(b => {
+      b.classList.remove('active'); b.setAttribute('aria-pressed','false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed','true');
+    currentOri = btn.dataset.ori;
+    recalc();
+  });
+});
+
+['w','h','qty'].forEach(id => $(id).addEventListener('input', recalc));
+['mat','rowGap'].forEach(id => $(id).addEventListener('change', recalc));
+
+function layoutFor(across, along, qty, rowGap) {
+  const lanes = Math.floor((CFG.usableWidth + CFG.laneGap) / (across + CFG.laneGap));
+  if (lanes < 1) return null;
+  const rows = Math.ceil(qty / lanes);
+  return {
+    lanes, across, along,
+    lenM: rows * (along + rowGap) / 1000,
+    perM: lanes * (1000 / (along + rowGap))
+  };
+}
+
+function tierK(meters) {
+  for (const t of CFG.tiers) if (meters >= t.minM) return t.k;
+  return CFG.tiers[CFG.tiers.length - 1].k;
+}
+
+function recalc() {
+  const W = +$('w').value, H = +$('h').value, qty = +$('qty').value;
+  const rowGap = +$('rowGap').value;
+  const mat = CFG.materials[+$('mat').value];
+  const fitNote = $('fitNote'), minNote = $('minNote');
+  fitNote.classList.remove('show'); minNote.classList.remove('show');
+
+  if (!W || !H || !qty || W < 5 || H < 5 || qty < 1) return;
+
+  let r;
+  if (currentOri === 'h')      r = layoutFor(W, H, qty, rowGap);
+  else if (currentOri === 'v') r = layoutFor(H, W, qty, rowGap);
+  else {
+    const a = layoutFor(W, H, qty, rowGap), b = layoutFor(H, W, qty, rowGap);
+    r = (!a) ? b : (!b) ? a : (a.perM >= b.perM ? a : b);
+  }
+
+  if (!r) {
+    ['priceTotal','pricePer','pricePerM','stLanes','stMeters','stPerM'].forEach(id => $(id).textContent = '—');
+    $('qtyEcho').textContent = qty.toLocaleString('uk-UA');
+    fitNote.classList.add('show');
+    drawLayout(null);
+    return;
+  }
+
+  const printM   = r.lenM;                                  // фактичний метраж друку
+  const billM    = Math.max(printM, CFG.minBillableM);      // метраж до оплати
+  const perMeter = mat.base * tierK(billM);                 // грн/м.п. за таблицею
+  let price      = billM * perMeter;
+  price = Math.ceil(price / 10) * 10;                       // округлення до 10 грн
+
+  $('priceTotal').textContent = price.toLocaleString('uk-UA');
+  $('pricePer').textContent   = (price / qty).toFixed(2).replace('.', ',');
+  $('pricePerM').textContent  = perMeter.toFixed(2).replace('.', ',');
+  $('qtyEcho').textContent    = qty.toLocaleString('uk-UA');
+  $('stLanes').textContent    = r.lanes;
+  $('stMeters').textContent   = (Math.round(printM * 10) / 10).toLocaleString('uk-UA');
+  $('stPerM').textContent     = Math.round(r.perM);
+
+  if (printM < CFG.minBillableM) minNote.classList.add('show');
+  if (CFG.minOrderNote && price < CFG.minOrderNote) minNote.classList.add('show');
+
+  const oriTxt = r.across === W ? 'горизонтально' : 'вертикально';
+  $('layCaption').innerHTML =
+    'Рулон 330&nbsp;мм · етикетка ' + oriTxt + ' · впоперек ' + r.across +
+    ' мм, вздовж ' + r.along + ' мм · між рядами ' + rowGap + ' мм';
+
+  $('orderBtn').href = 'https://t.me/Paperivka_bot?start=' +
+    encodeURIComponent('roll_' + W + 'x' + H + '_' + qty + '_m' + $('mat').value);
+
+  drawLayout(r);
+}
+
+function drawLayout(r) {
+  const svg = $('laySvg');
+  const VW = 660, VH = 200, pad = 14, top = 30, bandH = 140;
+  const scale = (VW - pad * 2) / CFG.rollWidth;
+  const X = mm => pad + mm * scale;
+  let s = '';
+
+  // повна стрічка 330 мм
+  s += '<rect x="' + pad + '" y="' + top + '" width="' + (CFG.rollWidth * scale) +
+       '" height="' + bandH + '" rx="4" fill="#f2f5ee" stroke="#d7ddd0"/>';
+  s += '<text x="' + pad + '" y="18" font-size="12" fill="#888" font-family="Montserrat,sans-serif">0 мм</text>';
+  s += '<text x="' + (pad + CFG.rollWidth * scale) + '" y="18" font-size="12" fill="#888" text-anchor="end" font-family="Montserrat,sans-serif">330 мм</text>';
+
+  // зони недодруку 5 мм з країв
+  const eu = CFG.edgeUnprintable * scale;
+  s += '<rect x="' + pad + '" y="' + top + '" width="' + eu + '" height="' + bandH + '" fill="#e4e8df"/>';
+  s += '<rect x="' + (pad + CFG.rollWidth * scale - eu) + '" y="' + top + '" width="' + eu + '" height="' + bandH + '" fill="#e4e8df"/>';
+
+  // мітки плотера (3 мм) уздовж обох країв друкованої зони
+  const markR = CFG.markDia / 2 * scale;
+  const mxL = X(CFG.edgeUnprintable + CFG.markDia / 2);
+  const mxR = X(CFG.rollWidth - CFG.edgeUnprintable - CFG.markDia / 2);
+  for (let i = 0; i < 4; i++) {
+    const my = top + 20 + i * (bandH - 40) / 3;
+    s += '<circle cx="' + mxL + '" cy="' + my + '" r="' + markR + '" fill="#2b2b2b"/>';
+    s += '<circle cx="' + mxR + '" cy="' + my + '" r="' + markR + '" fill="#2b2b2b"/>';
+  }
+
+  if (r) {
+    // ряди відцентровано на рулоні
+    const totalW = r.lanes * r.across + (r.lanes - 1) * CFG.laneGap;
+    const startMm = (CFG.rollWidth - totalW) / 2;
+    const lw = r.across * scale;
+    const rowH = Math.min(44, Math.max(22, r.along * scale * 0.5));
+    for (let row = 0; row < 2; row++) {
+      const y = top + 18 + row * (rowH + 12);
+      for (let i = 0; i < r.lanes; i++) {
+        const x = X(startMm + i * (r.across + CFG.laneGap));
+        s += '<rect x="' + x + '" y="' + y + '" width="' + lw + '" height="' + rowH +
+             '" rx="5" fill="#ffffff" stroke="#5BA829" stroke-width="1.6"/>';
+        if (row === 0) {
+          s += '<text x="' + (x + lw / 2) + '" y="' + (y + rowH / 2 + 4) +
+               '" font-size="12" fill="#5BA829" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="600">' +
+               (i + 1) + '</text>';
+        }
+      }
+    }
+  } else {
+    s += '<text x="' + (VW / 2) + '" y="' + (top + bandH / 2) +
+         '" font-size="14" fill="#a05a00" text-anchor="middle" font-family="Montserrat,sans-serif">Не вміщується на робочу зону</text>';
+  }
+  svg.innerHTML = s;
+}
+
+recalc();
+</script>
+</body>
+</html>
