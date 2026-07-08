@@ -45,10 +45,15 @@ p strong{color:var(--ink)}
 }
 .calc-grid{
   display:grid;
-  grid-template-columns:minmax(0,430px) minmax(0,1fr);
+  grid-template-columns:minmax(0,320px) minmax(0,1fr);
   gap:36px;
+  align-items: stretch;
 }
 @media (max-width:860px){.calc-grid{grid-template-columns:1fr}}
+.calc-form{
+  display:flex;
+  flex-direction:column;
+}
 
 .field{margin-bottom:16px}
 .field label{
@@ -68,11 +73,11 @@ p strong{color:var(--ink)}
 .ori-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .ori-card{
   border:2px solid var(--line);border-radius:10px;background:#fff;
-  padding:11px 6px;text-align:center;cursor:pointer;
-  font-size:12.5px;font-weight:600;line-height:1.3;color:var(--ink-soft);
+  padding:18px 8px;text-align:center;cursor:pointer;
+  font-size:13px;font-weight:600;line-height:1.3;color:var(--ink-soft);
   transition:border-color .15s,color .15s;
 }
-.ori-card svg{display:block;margin:0 auto 7px;width:34px;height:26px}
+.ori-card svg{display:block;margin:0 auto 10px;width:42px;height:32px}
 .ori-card.active{border-color:var(--green);color:var(--ink)}
 .ori-card:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 
@@ -187,8 +192,6 @@ p strong{color:var(--ink)}
         </div>
 
         <div class="btn-row">
-          <a class="btn btn-green" href="https://t.me/Paperivka_bot" id="orderBtn">ЗАМОВИТИ</a>
-          <a class="btn btn-ghost" href="tel:+380670080301">ПОТРІБНА ПОРАДА</a>
         </div>
       </div>
 
@@ -220,7 +223,6 @@ p strong{color:var(--ink)}
 
     </div>
   </div>
-  <p class="disclaimer">Розрахунок є попереднім. Точну вартість менеджер підтвердить після перегляду макета — форма висічки, складність змотки та терміновість можуть вплинути на ціну.</p>
 
 <script>
 /* =====================================================================
@@ -364,9 +366,6 @@ function recalc() {
   $('layCaption').innerHTML =
     'Рулон 330&nbsp;мм · етикетка ' + oriTxt + ' · впоперек ' + r.across +
     ' мм, вздовж ' + r.along + ' мм · між рядами ' + rowGap + ' мм';
-
-  $('orderBtn').href = 'https://t.me/Paperivka_bot?start=' +
-    encodeURIComponent('roll_' + W + 'x' + H + '_' + qty + '_m' + $('mat').value);
 
   drawLayout(r);
 }
